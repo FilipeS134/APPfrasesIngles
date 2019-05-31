@@ -54,6 +54,7 @@ public class HomeFragment extends Fragment {
 
         listaFrases = new ArrayList<>();
         listaFrases.add(new Frases( "I Love You", "Eu Amo Voce"));
+        listaFrases.add(new Frases( "Testing", "Tentando agora em portugues"));
         listaFrases.add(new Frases( "Hey man", "Ei cara!"));
         listaFrases.add(new Frases( "You can help me", "Voçe pode me ajudar"));
         listaFrases.add(new Frases( "Hello", "Olá"));
