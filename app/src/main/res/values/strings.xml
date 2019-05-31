@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AppIngles</string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_login">Login</string>
+    <string name="item_sair">Sair</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -10,4 +11,14 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="button_logar">Logar</string>
+    <string name="nome_app">Phrases Ingles</string>
+    <string name="button_login">Logar</string>
+    <string name="texto_cadastre">Não tem conta? Cadastre-se</string>
+    <string name="botao_cadastro">Cadastrar</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_frasesDia">Frases do Dia</string>
+    <string name="nav_favorito">Favoritos</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

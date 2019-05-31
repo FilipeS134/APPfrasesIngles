@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".activity.MainActivity">
+
+    <item android:id="@+id/item_sair"
+        android:title="sair"
+        android:orderInCategory="100" app:showAsAction="never"/>
+
+    <item android:id="@+id/item_pesquisa"
+        android:title="Pesquisar"
+        android:orderInCategory="200" app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_search"/>
+</menu>

@@ -1,0 +1,73 @@
+package com.example.appingles.adapter;
+
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.appingles.R;
+import com.example.appingles.modelo.Frases;
+
+import java.util.List;
+
+public class AdapterFrases extends RecyclerView.Adapter<AdapterFrases.ViewHolder> {
+
+    Context mContext;
+    List<Frases> mData;
+
+    public AdapterFrases(Context mContext, List<Frases> mData) {
+        this.mContext = mContext;
+        this.mData = mData;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View v;
+        v = LayoutInflater.from(mContext).inflate(R.layout.frases_layout,viewGroup, false);
+        final ViewHolder viewHolder = new ViewHolder(v);
+
+        viewHolder.icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "TesteClick "+String.valueOf(viewHolder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+
+        viewHolder.ingles.setText(mData.get(i).getIngles());
+        viewHolder.portugues.setText(mData.get(i).getPortugues());
+        viewHolder.icon.setImageResource(mData.get(i).getIcon());
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return mData.size();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+
+        private TextView ingles;
+        private TextView portugues;
+        private ImageView icon;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            ingles = itemView.findViewById(R.id.textoIngles);
+            portugues = itemView.findViewById(R.id.textoPortugues);
+            icon = itemView.findViewById(R.id.favorito);
+        }
+    }
+}
