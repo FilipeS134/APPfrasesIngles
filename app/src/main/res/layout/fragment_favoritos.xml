@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmento_favoritos"
+    android:id="@+id/rec"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_primary_dark"
-    tools:context=".fragments.HomeFragment">
+    android:background="@color/textColorPRIMARY"
+    tools:context=".fragments.HomeFragment"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView_teste"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Favoritos Testo"
-        android:textSize="50sp"
-        android:layout_gravity="center"
-        />
-</FrameLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/favorito_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

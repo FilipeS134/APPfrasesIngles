@@ -3,6 +3,8 @@ package com.example.appingles.activity;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,15 +22,28 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.regex.Pattern;
+
 public class CadastroUsuarioActivity extends AppCompatActivity {
 
-    private EditText nome;
+    public EditText nome;
     private EditText email;
     private EditText senha;
     private Button botaoCadastro;
     private Usuario usuario;
 
     private FirebaseAuth autenticacao;
+
+
+    private boolean isCampoVazio(String valor){
+        boolean resultado = (TextUtils.isEmpty(valor) || valor.trim().isEmpty());
+        return resultado;
+    }
+
+    private boolean isEmailValido(String email){
+        boolean resultado = (!isCampoVazio(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        return resultado;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +58,13 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         botaoCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                usuario = new Usuario();
-                usuario.setNome(nome.getText().toString());
-                usuario.setEmail(email.getText().toString());
-                usuario.setSenha(senha.getText().toString());
-                if (usuario.getSenha().isEmpty() || usuario.getEmail().isEmpty() || usuario.getNome().isEmpty()){
-                    Toast.makeText(CadastroUsuarioActivity.this,"O Campo está vazio, Porfavor tente denovo", Toast.LENGTH_SHORT).show();
+                if (isCampoVazio(nome.getText().toString()) || isCampoVazio(nome.getText().toString()) || isEmailValido(nome.getText().toString())){
+                    Toast.makeText(CadastroUsuarioActivity.this, "O campo está vazio, Porfavor tente de novo", Toast.LENGTH_SHORT).show();
                 }else{
+                    usuario = new Usuario();
+                    usuario.setNome(nome.getText().toString());
+                    usuario.setEmail(email.getText().toString());
+                    usuario.setSenha(senha.getText().toString());
                     cadastrarUsuario();
                 }
 
@@ -57,6 +72,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         });
 
     }
+
 
     private void cadastrarUsuario(){
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();

@@ -3,16 +3,28 @@ package com.example.appingles.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appingles.R;
+import com.example.appingles.config.ConfiguracaoFirebase;
 import com.example.appingles.modelo.Frases;
+import com.google.android.gms.common.internal.service.Common;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterFrases extends RecyclerView.Adapter<AdapterFrases.ViewHolder> {
@@ -27,17 +39,10 @@ public class AdapterFrases extends RecyclerView.Adapter<AdapterFrases.ViewHolder
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(@NonNull final ViewGroup viewGroup, int i) {
         View v;
         v = LayoutInflater.from(mContext).inflate(R.layout.frases_layout,viewGroup, false);
         final ViewHolder viewHolder = new ViewHolder(v);
-
-        viewHolder.icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(mContext, "TesteClick "+String.valueOf(viewHolder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
-            }
-        });
 
         return viewHolder;
     }
@@ -49,6 +54,7 @@ public class AdapterFrases extends RecyclerView.Adapter<AdapterFrases.ViewHolder
         viewHolder.portugues.setText(mData.get(i).getPortugues());
         viewHolder.icon.setImageResource(mData.get(i).getIcon());
 
+
     }
 
     @Override
@@ -56,11 +62,14 @@ public class AdapterFrases extends RecyclerView.Adapter<AdapterFrases.ViewHolder
         return mData.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView ingles;
         private TextView portugues;
         private ImageView icon;
+
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +77,14 @@ public class AdapterFrases extends RecyclerView.Adapter<AdapterFrases.ViewHolder
             ingles = itemView.findViewById(R.id.textoIngles);
             portugues = itemView.findViewById(R.id.textoPortugues);
             icon = itemView.findViewById(R.id.favorito);
+
+            icon.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         }
     }
 }

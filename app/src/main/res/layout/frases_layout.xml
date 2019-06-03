@@ -26,7 +26,7 @@
             <TextView
                 android:id="@+id/textoIngles"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textAllCaps="false"
                 android:textIsSelectable="false"
@@ -36,7 +36,7 @@
             <TextView
                 android:id="@+id/textoPortugues"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textSize="20sp" />
         </LinearLayout>

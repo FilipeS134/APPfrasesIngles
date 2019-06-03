@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
     private void verificarUsuarioLogado(){
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         if (autenticacao.getCurrentUser() != null){
