@@ -5,4 +5,6 @@
     <color name="colorPrimaryDarker">#027186</color>
     <color name="colorAccent">#E0578A</color>
     <color name="textColorPRIMARY">#FFFFFF</color>
+    <color name="iconAzul">#5663FF</color>
+    <color name="backCinza">#FFE2E2E2</color>
 </resources>

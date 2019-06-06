@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal|center_vertical"
     android:background="@color/colorPrimary"
-    tools:context=".activity.CadastroUsuarioActivity">
+    tools:context=".activity.CadastroUsuarioActivity"
+    android:backgroundTint="@color/cardview_dark_background">
 
     <ImageView
         android:id="@+id/imageView_logoCadastro"
@@ -83,7 +84,10 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="147dp"
+        android:background="@drawable/botao_customizado"
         android:text="@string/botao_cadastro"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         android:theme="@style/botaoPadrao"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

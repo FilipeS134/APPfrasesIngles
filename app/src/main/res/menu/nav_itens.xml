@@ -5,13 +5,16 @@
     <item
         android:id="@+id/nav_frasesdodia"
         android:icon="@drawable/ic_speaker_notes"
+        android:iconTint="@color/iconAzul"
         android:title="@string/nav_frasesDia" />
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
+        android:iconTint="@color/iconAzul"
         android:title="@string/nav_home" />
     <item
         android:id="@+id/nav_favoritos"
         android:icon="@drawable/ic_favorite"
+        android:iconTint="@color/iconAzul"
         android:title="@string/nav_favorito" />
 </menu>

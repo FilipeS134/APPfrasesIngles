@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/textColorPRIMARY"
     tools:context=".fragments.HomeFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:backgroundTint="@color/cardview_dark_background">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/favorito_recyclerview"
