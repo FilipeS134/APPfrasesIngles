@@ -176,13 +176,11 @@ public class PerfilFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (i == 0){
                     pd.setMessage("Atualiando Foto Perfil");
-                    pd.setCancelable(false);
                     pd.show();
                     perfilOuCapaFoto = "imagem";
                     showImagePicDialog();
                 }else if (i == 1){
                     pd.setMessage("Atualizando Foto Capa");
-                    pd.setCancelable(false);
                     pd.show();
                     perfilOuCapaFoto = "capa";
                     showImagePicDialog();
