@@ -31,9 +31,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        app:itemBackground="@android:color/holo_blue_dark"
-        app:itemIconTint="@color/cardview_light_background"
-        app:itemTextColor="@color/cardview_light_background"
-        app:menu="@menu/nav_itens" />
+        app:itemBackground="@android:color/white"
+        app:menu="@menu/nav_itens"
+        app:itemIconTint="@drawable/item_selected"
+        app:itemTextColor="@drawable/item_selected"/>
 
 </RelativeLayout>
