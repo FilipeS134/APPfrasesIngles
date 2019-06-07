@@ -78,8 +78,9 @@ public class FrasesDoDiaFragment extends Fragment {
                     listaFrases.add(frases);
 
                 }
-                while (frasesDia.size() < 5){
-                    frasesDia.add(listaFrases.get(new Random().nextInt(listaFrases.size())));
+                Collections.shuffle(listaFrases);
+                for (int i = 0; i < 5; i++){
+                    frasesDia.add(listaFrases.get(i));
                 }
                 Collections.sort(frasesDia);
                 adapterFrases.notifyDataSetChanged();
