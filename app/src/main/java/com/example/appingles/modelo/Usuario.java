@@ -10,8 +10,11 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+    private int imagem;
+    private int imagem_capa;
 
     public Usuario() {
+
     }
 
     public void salvar(){
@@ -41,6 +44,14 @@ public class Usuario {
         return email;
     }
 
+    public int getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(int imagem) {
+        this.imagem = imagem;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -51,5 +62,13 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public int getImagem_capa() {
+        return imagem_capa;
+    }
+
+    public void setImagem_capa(int imagem_capa) {
+        this.imagem_capa = imagem_capa;
     }
 }

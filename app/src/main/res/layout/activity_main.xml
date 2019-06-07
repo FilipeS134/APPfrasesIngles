@@ -31,7 +31,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        app:itemBackground="@color/colorPrimary"
+        app:itemBackground="@android:color/holo_blue_dark"
         app:itemIconTint="@color/cardview_light_background"
         app:itemTextColor="@color/cardview_light_background"
         app:menu="@menu/nav_itens" />

@@ -10,9 +10,9 @@
     android:backgroundTint="@color/cardview_dark_background">
 
     <ImageView
-        android:id="@+id/imageView_logoCadastro"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
+        android:id="@+id/imagen_cadastro"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
@@ -56,7 +56,7 @@
         app:layout_constraintBottom_toTopOf="@+id/editText_emailCadastro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_logoCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/imagen_cadastro"
         android:autofillHints="" />
 
     <EditText
@@ -76,22 +76,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_emailCadastro" />
 
-    <Button
+    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
         android:id="@+id/button_cadastro"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="147dp"
         android:background="@drawable/botao_customizado"
+        android:gravity="center"
         android:text="@string/botao_cadastro"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:theme="@style/botaoPadrao"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_senhaCadastro" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_senhaCadastro"
+        app:spinning_bar_color="#fff"
+        app:spinning_bar_padding="6dp"
+        app:spinning_bar_width="4dp" />
+
 </android.support.constraint.ConstraintLayout>

@@ -8,7 +8,6 @@ public class Frases implements Comparable<Frases> {
     @Exclude
     private Integer id;
 
-    private int icon;
     private String ingles;
     private String portugues;
 
@@ -16,18 +15,13 @@ public class Frases implements Comparable<Frases> {
 
     }
 
-    public Frases(int icon, String ingles, String portugues) {
-        this.icon = icon;
-        this.ingles = ingles;
-        this.portugues = portugues;
-    }
     public Frases(Integer id, String ingles, String portugues) {
         this.id = id;
         this.ingles = ingles;
         this.portugues = portugues;
     }
 
-    public Frases( String ingles, String portugues) {
+    public Frases(String ingles, String portugues) {
         this.ingles = ingles;
         this.portugues = portugues;
     }
@@ -38,14 +32,6 @@ public class Frases implements Comparable<Frases> {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public int getIcon() {
-        return icon;
-    }
-
-    public void setIcon(int icon) {
-        this.icon = icon;
     }
 
     public String getIngles() {

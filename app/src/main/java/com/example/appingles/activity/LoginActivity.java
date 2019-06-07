@@ -21,11 +21,13 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.database.DatabaseReference;
 
+import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText email;
     private EditText senha;
-    private Button botaoLogar;
+    private CircularProgressButton botaoLogar;
     private Usuario usuario;
     private FirebaseAuth autenticacao;
 
@@ -49,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (usuario.getSenha().isEmpty() || usuario.getEmail().isEmpty()){
                     Toast.makeText(LoginActivity.this,"O Campo está vazio", Toast.LENGTH_SHORT).show();
                 }else{
+                    botaoLogar.startAnimation();
                     validarLogin();
                 }
 

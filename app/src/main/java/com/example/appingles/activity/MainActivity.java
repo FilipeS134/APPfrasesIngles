@@ -13,7 +13,7 @@ import android.view.MenuItem;
 
 import com.example.appingles.R;
 import com.example.appingles.config.ConfiguracaoFirebase;
-import com.example.appingles.fragments.FavoritosFragment;
+import com.example.appingles.fragments.PerfilFragment;
 import com.example.appingles.fragments.FrasesDoDiaFragment;
 import com.example.appingles.fragments.HomeFragment;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                     infla(new HomeFragment(), "Home");
                     return true;
                 case R.id.nav_favoritos:
-                    infla(new FavoritosFragment(), "Favoritos");
+                    infla(new PerfilFragment(), "Favoritos");
                     return true;
             }
             return false;

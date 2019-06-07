@@ -52,7 +52,6 @@ public class AdapterFrases extends RecyclerView.Adapter<AdapterFrases.ViewHolder
 
         viewHolder.ingles.setText(mData.get(i).getIngles());
         viewHolder.portugues.setText(mData.get(i).getPortugues());
-        viewHolder.icon.setImageResource(mData.get(i).getIcon());
 
 
     }
@@ -76,9 +75,7 @@ public class AdapterFrases extends RecyclerView.Adapter<AdapterFrases.ViewHolder
 
             ingles = itemView.findViewById(R.id.textoIngles);
             portugues = itemView.findViewById(R.id.textoPortugues);
-            icon = itemView.findViewById(R.id.favorito);
 
-            icon.setOnClickListener(this);
 
         }
 

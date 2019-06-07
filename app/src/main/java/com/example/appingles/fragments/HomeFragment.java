@@ -1,5 +1,6 @@
 package com.example.appingles.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -66,7 +67,6 @@ public class HomeFragment extends Fragment {
         final AdapterFrases adapterFrases = new AdapterFrases(getContext(), listaFrases);
         meuRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         meuRecyclerView.setAdapter(adapterFrases);
-
 
 
         firebase = ConfiguracaoFirebase.getFirebase().child("frases");
