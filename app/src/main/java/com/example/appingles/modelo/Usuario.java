@@ -11,17 +11,16 @@ public class Usuario {
     private String email;
     private String senha;
     private int imagem;
-    private int imagem_capa;
 
     public Usuario() {
 
     }
 
+
     public void salvar(){
         DatabaseReference referenciaFireBase = ConfiguracaoFirebase.getFirebase();
-        referenciaFireBase.child("usuarios").child(getId()).setValue(this);
+        referenciaFireBase.child("usuarios").child(getId()).setValue( this );
     }
-
 
     @Exclude
     public String getId() {
@@ -64,11 +63,4 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public int getImagem_capa() {
-        return imagem_capa;
-    }
-
-    public void setImagem_capa(int imagem_capa) {
-        this.imagem_capa = imagem_capa;
-    }
 }

@@ -65,12 +65,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
-
         nome = findViewById(R.id.editText_nome);
         email = findViewById(R.id.editText_emailCadastro);
         senha = findViewById(R.id.editText_senhaCadastro);
         botaoCadastro = findViewById(R.id.button_cadastro);
-
+        usuario = new Usuario();
 
         botaoCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,12 +77,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 if (isCampoVazio(nome.getText().toString()) || isCampoVazio(senha.getText().toString()) || isEmailValido(email.getText().toString())){
                     Toast.makeText(CadastroUsuarioActivity.this, "O campo está vazio, Porfavor tente de novo", Toast.LENGTH_SHORT).show();
                 }else{
-                    botaoCadastro.startAnimation();
-                    usuario = new Usuario();
                     usuario.setNome(nome.getText().toString());
                     usuario.setEmail(email.getText().toString());
                     usuario.setSenha(senha.getText().toString());
                     cadastrarUsuario();
+                    botaoCadastro.startAnimation();
                 }
 
             }
@@ -100,30 +98,32 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         ).addOnCompleteListener(CadastroUsuarioActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(CadastroUsuarioActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show();
-                    FirebaseUser usuarioFirebaseUser = task.getResult().getUser();
-                    usuario.setId(usuarioFirebaseUser.getUid());
-                    usuario.salvar();
-                    autenticacao.signOut();
-                    finish();
-                }else{
-                    String erroExecao = "";
-                    try {
-                        throw task.getException();
-                    }catch (FirebaseAuthWeakPasswordException e) {
-                        erroExecao = "Digite uma senha mais forte, contendo mais caracteres!";
-                    } catch (FirebaseAuthInvalidCredentialsException e) {
-                        erroExecao = "O e-mail digitado é invalido, digite outro e-mail!";
+                    if(task.isSuccessful()){
+                        usuario.setId(task.getResult().getUser().getUid());
+                        usuario.salvar();
 
-                    } catch (FirebaseAuthUserCollisionException e) {
-                        erroExecao = "O e-mail já existe!";
-                    } catch (Exception e) {
-                        erroExecao = "Ao efetuar o cadastro!";
-                        e.printStackTrace();
+                        Toast.makeText(CadastroUsuarioActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_LONG).show();
+
+                        finish();
+                    }else{
+                        String erroExecao = "";
+                        try {
+                            throw task.getException();
+                        }catch (FirebaseAuthWeakPasswordException e) {
+                            botaoCadastro.revertAnimation();
+                            erroExecao = "Digite uma senha mais forte, contendo mais caracteres!";
+                        } catch (FirebaseAuthInvalidCredentialsException e) {
+                            botaoCadastro.revertAnimation();
+                            erroExecao = "O e-mail digitado é invalido, digite outro e-mail!";
+                        } catch (FirebaseAuthUserCollisionException e) {
+                            botaoCadastro.revertAnimation();
+                            erroExecao = "O e-mail já existe!";
+                        }catch (Exception e) {
+                            botaoCadastro.revertAnimation();
+                            e.printStackTrace();
+                        }
+                        Toast.makeText(CadastroUsuarioActivity.this, "Erro: " + erroExecao, Toast.LENGTH_LONG).show();
                     }
-                    Toast.makeText(CadastroUsuarioActivity.this, "Erro: " + erroExecao, Toast.LENGTH_LONG).show();
-                }
             }
         });
     }
